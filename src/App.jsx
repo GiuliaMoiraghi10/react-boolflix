@@ -27,7 +27,7 @@ function App() {
 
   return (
     <>
-      <GlobalContext.Provider value={{}}>
+      <GlobalContext.Provider value={{ movies, fetchMovies }}>
         <Home />
       </GlobalContext.Provider>
     </>
