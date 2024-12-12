@@ -10,7 +10,7 @@ export default function SearchBar() {
                     name="search"
                     className="form"
                     placeholder="cerca il titolo" />
-                <button>Cerca</button>
+                <input type="submit" />
             </form>
         </div>
     )
