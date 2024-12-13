@@ -15,7 +15,7 @@ export default function Movies() {
             <div>
                 {movies &&
                     movies.map((movie) => {
-                        <Card key={movie.id} item={movie} />
+                        <Card />
                     })
                 }
             </div>

@@ -21,7 +21,7 @@ function App() {
         setMovies(res.data.results)
       })
       .catch(error => {
-        console.error('Film non trovato')
+        console.error(error)
       })
   }
 
