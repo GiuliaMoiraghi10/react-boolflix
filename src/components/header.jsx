@@ -5,8 +5,12 @@ export default function Header() {
         <>
             <header>
                 <div className="container">
-                    <h1>Titolo progetto + logo</h1>
-                    <SearchBar />
+                    <div className="navbar">
+                        <div>
+                            Logo
+                        </div>
+                        <SearchBar />
+                    </div>
                 </div>
             </header>
         </>
