@@ -6,7 +6,7 @@ import Home from './pages/Home'
 import GlobalContext from './context/GlobalContext'
 import { useState, useEffects } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Main from './main'
+import Main from './components/Main'
 
 function App() {
 
