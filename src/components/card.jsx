@@ -5,11 +5,13 @@ export default function Card({ item = {} }) {
 
     // ritorna quello che voglio stampato nelle card
     return (
-        <div>
-            <h3>{title || name}</h3>
-            <h4>{original_title || original_name}</h4>
-            <p>{original_language}</p>
-            <p>{vote_average}</p>
+        <div className="col_4">
+            <div className="card">
+                <h3>{title || name}</h3>
+                <h4>{original_title || original_name}</h4>
+                <p>{original_language}</p>
+                <p>{vote_average}</p>
+            </div>
         </div>
     )
 }

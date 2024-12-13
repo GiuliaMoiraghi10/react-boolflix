@@ -26,10 +26,27 @@ function App() {
       }
     }).then(res => {
       console.log(res.data)
+      //l'array di movie è nella chiave results, quindi passo a setMovies res.data.results, da fare uguale per le series
+      setMovies(res.data.results)
       //prendere array di movies e settarlo nella variabile movies
-    }).catch(err => {
-      console.error(err)
+    }).catch(error => {
+      console.error(error)
       setMovies([])
+    })
+
+    // stessa chiamata axios, ma per le series
+    axios.get('https://api.themoviedb.org/3/search/tv', {
+      params: {
+        api_key: KEY_API,
+        query
+      }
+    }).then(res => {
+      console.log(res.data)
+
+      setSeries(res.data.results)
+
+    }).catch(error => {
+      console.error(error)
       setSeries([])
     })
   }
