@@ -5,7 +5,8 @@ export default function SearchBar() {
 
 
     // deve prendere query da GlobalContext da poter dare al value dell'inpunt
-    const { query, setQuery } = useContext(GlobalContext)
+    // prende anche funzione fetchData che fa la chiamata axios in App.jsx
+    const { query, setQuery, fetchData } = useContext(GlobalContext)
 
     // setQuery da invocare all'evento onChange dell'input
     function onChange(e) {
@@ -15,6 +16,8 @@ export default function SearchBar() {
     // disabilito invio del form (input), legato all'evento onSubmit
     function onSubmit(e) {
         e.preventDefault()
+        // invoco funzione fetchData (in App.jsx) per collegarla all'input
+        fetchData()
     }
 
     return (

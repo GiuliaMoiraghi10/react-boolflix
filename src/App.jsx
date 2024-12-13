@@ -2,11 +2,11 @@ import './App.css'
 import axios from 'axios'
 import { BASE_URI } from './URIelements/baseURI'
 import { KEY_API } from './URIelements/keyAPI'
-import Home from './pages/Home'
 import GlobalContext from './context/GlobalContext'
 import { useState, useEffects } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Main from './components/Main'
+import Header from './components/header'
 
 function App() {
 
@@ -16,24 +16,30 @@ function App() {
   const [series, setSeries] = useState([])
   const [query, setQuery] = useState('')
 
-  // chiamata axios all'API per prendere i film
-  // aggiunta della query per il form
-
-  function fetchMovies(query) {
-    axios.get(`${BASE_URI}/search/movie?${KEY_API}&query=${query}`)
-      .then(res => {
-        setMovies(res.data.results)
-      })
-      .catch(error => {
-        console.error(error)
-      })
+  // funzione che recupera API tramite chiamata Axios -
+  // passo a get la base dell'url e come params la key e la query scritta dall'utente
+  function fetchData() {
+    axios.get('https://api.themoviedb.org/3/search/movie', {
+      params: {
+        api_key: KEY_API,
+        query
+      }
+    }).then(res => {
+      console.log(res.data)
+      //prendere array di movies e settarlo nella variabile movies
+    }).catch(err => {
+      console.error(err)
+      setMovies([])
+      setSeries([])
+    })
   }
 
   return (
     <>
       {/* passo come props le 3 variabili che mi serve prendere dal GlobalContext */}
-      <GlobalContext.Provider value={{ movies, series, query }}>
-        <Home />
+      {/* passo anche setQuery e fetchData per poter essere accessibili ovunque */}
+      <GlobalContext.Provider value={{ movies, series, query, setQuery, fetchData }}>
+        <Header />
         <Main />
       </GlobalContext.Provider>
     </>
