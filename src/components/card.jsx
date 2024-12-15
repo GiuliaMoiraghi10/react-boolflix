@@ -1,4 +1,8 @@
 import flagsMap from "../libs/bandiere"
+import { BASE_IMG } from '../URIelements/imgURI'
+import { SIZE_IMG } from '../URIelements/imgURI'
+import placeholder from '../assets/bandiere/placeholder.png'
+
 
 export default function Card({ item = {} }) {
 
@@ -11,6 +15,7 @@ export default function Card({ item = {} }) {
             <div className="card">
                 <h3>{title || name}</h3>
                 <h4>{original_title || original_name}</h4>
+                <img src={`${BASE_IMG}${SIZE_IMG}${poster_path || placeholder}`} alt="" />
 
                 {
                     flagsMap[original_language] ?
