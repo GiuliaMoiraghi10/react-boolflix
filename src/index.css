@@ -19,26 +19,24 @@ a {
 }
 
 .container {
-    /* max-width: 1024px; */
+    max-width: 1024px;
     padding: 0 20px;
-    /* margin: 0 auto; */
+    margin: 0 auto;
 }
 
 .row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
 }
 
 .col_4 {
-    width: calc(100% / 3);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap;
 }
 
 .card {
     width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
