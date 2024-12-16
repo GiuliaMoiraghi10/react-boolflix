@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
 
+import style from './card.module.css'
+
 
 export default function Card({ item = {} }) {
 
@@ -26,18 +28,18 @@ export default function Card({ item = {} }) {
     // ritorna quello che voglio stampato nelle card
     return (
         <div className="col_4">
-            <div className="card">
-                <img src={poster_path ? `${BASE_IMG}${SIZE_IMG}${poster_path}` : placeholder} alt="" />
-                <h3>{title || name}</h3>
-                <h4>{original_title || original_name}</h4>
+            <div className={style.card}>
+                <img className={style.poster} src={poster_path ? `${BASE_IMG}${SIZE_IMG}${poster_path}` : placeholder} alt="" />
+                <h3 className={style.title_original}>{title || name}</h3>
+                <h4 className={style.title}>{original_title || original_name}</h4>
                 {/* <img src={`${BASE_IMG}${SIZE_IMG}${poster_path || placeholder}`} alt="" /> */}
 
                 {
                     flagsMap[original_language] ?
-                        <img src={flagsMap[original_language]} height={20} alt="" /> :
+                        <img className={style.flag} src={flagsMap[original_language]} height={20} alt="" /> :
                         <p>{original_language}</p>
                 }
-                <p>{voteNumberInt}</p>
+                {/* <p>{voteNumberInt}</p> */}
                 <div>
                     {starsVote}
                 </div>

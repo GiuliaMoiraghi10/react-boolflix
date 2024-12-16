@@ -10,8 +10,8 @@ export default function Header() {
                     <div className={style.navbar}>
                         <div>
                             <img src={logo} alt="" />
-                            <SearchBar />
                         </div>
+                        <SearchBar />
                     </div>
                 </div>
             </header>
