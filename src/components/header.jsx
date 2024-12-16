@@ -1,15 +1,17 @@
 import SearchBar from "./searchBar"
+import style from './header.module.css'
+import logo from '../assets/logo/logo.png'
 
 export default function Header() {
     return (
         <>
-            <header>
+            <header className={style.header}>
                 <div className="container">
-                    <div className="navbar">
+                    <div className={style.navbar}>
                         <div>
-                            Logo
+                            <img src={logo} alt="" />
+                            <SearchBar />
                         </div>
-                        <SearchBar />
                     </div>
                 </div>
             </header>

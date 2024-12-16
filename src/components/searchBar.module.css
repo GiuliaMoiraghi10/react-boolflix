@@ -1,0 +1,28 @@
+.search_bar {
+    color: white;
+}
+
+input {
+    padding: 10px;
+    margin: 0 20px;
+    min-width: 200px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+button {
+    width: 80px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+
+}
+
+button:hover {
+    background-color: rgb(168, 32, 32);
+}
+
+label {
+    font-size: 18px;
+}

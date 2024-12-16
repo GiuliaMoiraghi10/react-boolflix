@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import GlobalContext from "../context/GlobalContext"
+import style from './searchBar.module.css'
 
 export default function SearchBar() {
 
@@ -22,7 +23,7 @@ export default function SearchBar() {
 
     return (
 
-        <form onSubmit={onSubmit}>
+        <form className={style.search_bar} onSubmit={onSubmit}>
             <label htmlFor="query">Cerca il titolo</label>
             <input
                 onChange={onChange}
