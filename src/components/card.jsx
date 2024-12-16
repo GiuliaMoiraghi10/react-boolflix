@@ -9,6 +9,8 @@ import { faStar } from "@fortawesome/free-solid-svg-icons"
 
 import style from './card.module.css'
 
+import { useState } from 'react'
+
 
 export default function Card({ item = {} }) {
 
@@ -25,26 +27,33 @@ export default function Card({ item = {} }) {
         starsVote[i] = <FontAwesomeIcon icon={i < voteNumberInt ? faStar : faStarRegular} />
     }
 
+    // creo variabile per l'hover
+    const [hover, setHover] = useState(false)
+
     // ritorna quello che voglio stampato nelle card
     return (
-        <div className="col_4">
-            <div className={style.card}>
-                <img className={style.poster} src={poster_path ? `${BASE_IMG}${SIZE_IMG}${poster_path}` : placeholder} alt="" />
-                <h3 className={style.title_original}>{title || name}</h3>
-                <h4 className={style.title}>{original_title || original_name}</h4>
-                {/* <img src={`${BASE_IMG}${SIZE_IMG}${poster_path || placeholder}`} alt="" /> */}
 
-                {
-                    flagsMap[original_language] ?
-                        <img className={style.flag} src={flagsMap[original_language]} height={20} alt="" /> :
-                        <p>{original_language}</p>
-                }
-                {/* <p>{voteNumberInt}</p> */}
-                <div>
-                    {starsVote}
-                </div>
-
+        <section>
+            <div className={style.card_img} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+                <img src={poster_path ? `${BASE_IMG}${SIZE_IMG}${poster_path}` : placeholder} alt="" />
             </div>
-        </div>
+            {hover &&
+                <div className={style.card_content}>
+                    <h3 className={style.title_original}>{title || name}</h3>
+                    <h4 className={style.title}>{original_title || original_name}</h4>
+                    {/* <img src={`${BASE_IMG}${SIZE_IMG}${poster_path || placeholder}`} alt="" /> */}
+
+                    {
+                        flagsMap[original_language] ?
+                            <img className={style.flag} src={flagsMap[original_language]} height={30} alt="" /> :
+                            <p>{original_language}</p>
+                    }
+                    {/* <p>{voteNumberInt}</p> */}
+                    <div>
+                        {starsVote}
+                    </div>
+                </div>
+            }
+        </section>
     )
 }

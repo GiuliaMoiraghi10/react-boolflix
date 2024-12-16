@@ -1,5 +1,5 @@
 .title_original {
-    font-size: 40px;
+    font-size: 30px;
     margin: 10px 0 5px;
 }
 
@@ -7,16 +7,6 @@
     font-weight: 300;
     margin: 10px 0 10px;
     font-size: 20px;
-}
-
-.card {
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.poster {
-    aspect-ratio: 2/3;
 }
 
 .flag {
